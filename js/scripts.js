@@ -8,8 +8,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const animateElement = (element, animation) => {
     element.style.opacity = '0';
     element.style.animation = 'none';
-    void element.offsetWidth; // Trigger reflow
-    element.style.animation = animation;
+    void element.offsetWidth; 
+    element.style.animation = animation; // Aplicando animação definida no CSS
   };
 
   const observerCallback = (entries, observer) => {
@@ -34,8 +34,6 @@ document.addEventListener('DOMContentLoaded', () => {
           animation = 'slideInFromRight 1s forwards';
         } else if (element.classList.contains('cta')) {
           animation = 'pulseIn 1s forwards';
-        } else if (element.classList.contains('whatsapp-button')) {
-          animation = 'bounceIn 1s forwards';
         }
 
         animateElement(element, animation);
@@ -46,57 +44,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const observer = new IntersectionObserver(observerCallback, observerOptions);
 
-  // Observe elements
-  document.querySelectorAll('.hidden, .feature-card, .exam-card, .model-card, .investment-card, .intro-text, .intro-image, .cta, .whatsapp-button').forEach((element, index) => {
+  document.querySelectorAll('.hidden, .feature-card, .exam-card, .model-card, .investment-card, .intro-text, .intro-image, .cta').forEach((element, index) => {
     if (element.classList.contains('feature-card')) {
       element.dataset.delay = `${index * 0.2}s`;
     }
     observer.observe(element);
   });
 
-  // Add these animations to your CSS file
-  const style = document.createElement('style');
-  style.textContent = `
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
-    }
-    @keyframes slideInFromTop {
-      from { transform: translateY(-50px); opacity: 0; }
-      to { transform: translateY(0); opacity: 1; }
-    }
-    @keyframes slideInFromLeft {
-      from { transform: translateX(-50px); opacity: 0; }
-      to { transform: translateX(0); opacity: 1; }
-    }
-    @keyframes slideInFromRight {
-      from { transform: translateX(50px); opacity: 0; }
-      to { transform: translateX(0); opacity: 1; }
-    }
-    @keyframes zoomIn {
-      from { transform: scale(0.5); opacity: 0; }
-      to { transform: scale(1); opacity: 1; }
-    }
-    @keyframes flipIn {
-      from { transform: perspective(400px) rotateY(90deg); opacity: 0; }
-      to { transform: perspective(400px) rotateY(0deg); opacity: 1; }
-    }
-    @keyframes slideInFromBottom {
-      from { transform: translateY(50px); opacity: 0; }
-      to { transform: translateY(0); opacity: 1; }
-    }
-    @keyframes pulseIn {
-      0% { transform: scale(0.9); opacity: 0; }
-      50% { transform: scale(1.05); opacity: 0.5; }
-      100% { transform: scale(1); opacity: 1; }
-    }
-    @keyframes bounceIn {
-      0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
-      40% { transform: translateY(-30px); }
-      60% { transform: translateY(-15px); }
-    }
-  `;
-  document.head.appendChild(style);
-
   console.log('Animations have been set up successfully!');
+
+  
 });
+
