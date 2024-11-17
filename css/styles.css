@@ -1,0 +1,668 @@
+:root {
+    --primary-color: #0066cc;
+    --secondary-color: #e6f2ff;
+    --accent-color: #ff6600;
+    --text-color: #333;
+    --background-color: #ffffff;
+    --bronze-light: #ffd7a8;
+    --bronze-dark: #cd7f32;
+    --silver-light: #e8e8e8;
+    --silver-dark: #c0c0c0;
+    --gold-light: #fff2a8;
+    --gold-dark: #ffd700;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--background-color);
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+header {
+    background-color: var(--background-color);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 0;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    max-width: 70%;
+    height: auto;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+}
+
+.nav-links li {
+    margin-left: 1.5rem;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--primary-color);
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: var(--accent-color);
+}
+
+.hero {
+    background-image: url('../imagens/pexels-chokniti-khongchum-1197604-2280571.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+    color: var(--background-color);
+    text-align: center;
+    padding: 8rem 0 4rem;
+}
+
+.hero::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(5px);
+}
+
+.hero .container {
+    position: relative;
+    z-index: 1;
+}
+
+.hero h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+.hero p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+}
+
+.btn {
+    display: inline-block;
+    background-color: var(--accent-color);
+    color: var(--background-color);
+    padding: 0.8rem 1.5rem;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.btn:hover {
+    background-color: #e65c00;
+    transform: translateY(-3px);
+}
+
+section {
+    padding: 4rem 0;
+}
+
+h2 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 2rem;
+}
+
+.features, .exams, .models {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.feature, .exam, .model {
+    background-color: var(--background-color);
+    padding: 1.5rem;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    transition: transform 0.3s;
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.feature:hover, .exam:hover, .model:hover {
+    transform: translateY(-5px);
+}
+
+.feature h3, .exam h3, .model h3 {
+    margin-bottom: 1rem;
+    color: var(--primary-color);
+}
+
+.investment {
+    padding: 4rem 0;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin-bottom: 3rem;
+}
+
+.investment-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.investment-card {
+    background-color: var(--background-color);
+    border-radius: 8px;
+    padding: 2rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.investment-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.investment-title {
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    position: relative;
+    padding-bottom: 0.5rem;
+}
+
+.investment-title::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 50px;
+    height: 3px;
+    background-color: var(--accent-color);
+}
+
+.investment-description {
+    font-size: 1rem;
+    color: var(--text-color);
+    margin-bottom: 1.5rem;
+    flex-grow: 1;
+}
+
+.investment-details {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.investment-amount {
+    font-size: 1.75rem;
+    font-weight: bold;
+    color: var(--accent-color);
+    margin-bottom: 0.5rem;
+}
+
+.investment-note {
+    font-size: 0.875rem;
+    color: var(--text-color);
+    opacity: 0.8;
+}
+
+@media (max-width: 768px) {
+    .investment-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.cta {
+    text-align: center;
+    background-color: var(--primary-color);
+    color: var(--background-color);
+    padding: 2rem 0;
+}
+
+.cta a{
+    margin: 20px;
+}
+
+footer {
+    background-color: #333;
+    color: var(--background-color);
+    text-align: center;
+    padding: 1rem 0;
+}
+
+.animate {
+    animation: fadeInUp 0.6s ease forwards;
+}
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.intro {
+    background-color: var(--secondary-color);
+    padding: 4rem 0;
+}
+
+.intro-content {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.intro-text h2 {
+    color: var(--primary-color);
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.intro-text p {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--text-color);
+}
+
+.intro-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+@media (min-width: 768px) {
+    .intro-content {
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .intro-text {
+        flex: 1;
+        padding-right: 2rem;
+    }
+
+    .intro-image {
+        flex: 1;
+    }
+}
+
+/* New styles for "Nossos Modelos" section */
+#modelos{
+    background-color: var(--secondary-color);
+}
+.models-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.model-card {
+    border-radius: 0.5rem;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.model-card:hover {
+    transform: scale(1.05);
+}
+
+.bronze {
+    background: linear-gradient(135deg, var(--bronze-light), var(--bronze-dark));
+}
+
+.silver {
+    background: linear-gradient(135deg, var(--silver-light), var(--silver-dark));
+}
+
+.gold {
+    background: linear-gradient(135deg, var(--gold-light), var(--gold-dark));
+}
+
+.icon-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 4rem;
+    height: 4rem;
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    margin: 1.5rem auto;
+}
+
+.medal-icon {
+    width: 2rem;
+    height: 2rem;
+    color: white;
+}
+
+.model-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 1rem;
+    color: white;
+}
+
+.model-description {
+    text-align: center;
+    padding: 0 1.5rem 1.5rem;
+    color: white;
+}
+
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+    }
+    .hero h1 {
+        font-size: 2rem;
+    }
+    .hero p {
+        font-size: 1rem;
+    }
+    .intro p {
+        font-size: 1rem;
+    }
+    .models-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.exames-section {
+    padding: 4rem 0;
+}
+
+.exams-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.exam-card {
+    background-color: var(--background-color);
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 1.5rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.exam-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.exam-card .icon-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 4rem;
+    height: 4rem;
+    background-color: var(--primary-color);
+    border-radius: 50%;
+    margin: 0 auto 1rem;
+}
+
+.exam-card .exam-icon {
+    width: 2rem;
+    height: 2rem;
+    color: var(--background-color);
+}
+
+.exam-card .exam-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--primary-color);
+    text-align: center;
+    margin-bottom: 0.5rem;
+}
+
+.exam-card .exam-description {
+    font-size: 0.9rem;
+    color: var(--text-color);
+    text-align: center;
+}
+
+@media (max-width: 768px) {
+    .exams-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.sobre-section {
+    background-color: var(--background-color);
+    padding: 4rem 0;
+    overflow: hidden;
+}
+
+.features-slider {
+    display: flex;
+    transition: transform 0.5s ease;
+    margin: 2rem 0;
+}
+
+.feature-card {
+    flex: 0 0 100%;
+    background-color: var(--secondary-color);
+    border-radius: 1rem;
+    padding: 2rem;
+    margin-right: 2rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.feature-card:hover, .feature-card:focus {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.feature-icon {
+    background-color: var(--primary-color);
+    width: 4rem;
+    height: 4rem;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.feature-svg {
+    width: 2rem;
+    height: 2rem;
+    color: var(--background-color);
+}
+
+.feature-title {
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.feature-description {
+    font-size: 1rem;
+    color: var(--text-color);
+}
+
+.slider-controls {
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+}
+
+.prev-btn, .next-btn {
+    background-color: var(--primary-color);
+    color: var(--background-color);
+    border: none;
+    border-radius: 50%;
+    width: 3rem;
+    height: 3rem;
+    font-size: 1.5rem;
+    cursor: pointer;
+    margin: 0 0.5rem;
+    transition: background-color 0.3s ease;
+}
+
+.prev-btn:hover, .next-btn:hover {
+    background-color: var(--accent-color);
+}
+
+@media (min-width: 768px) {
+    .features-slider {
+        overflow-x: visible;
+    }
+
+    .feature-card {
+        flex: 0 0 calc(50% - 1rem);
+    }
+}
+
+@media (min-width: 1024px) {
+    .feature-card {
+        flex: 0 0 calc(25% - 1.5rem);
+    }
+}
+
+.fa-medal {
+    font-size: 30px;
+    color: white;
+}
+
+.fa-headset{
+    font-size: 30px;
+    color: white;
+}
+
+.fa-microscope{
+    font-size: 30px;
+    color: white;
+}
+
+.fa-arrow-up-right-dots{
+    font-size: 30px;
+    color: white;
+}
+
+.fa-dollar-sign{
+    font-size: 30px;
+    color: white;
+}
+
+.fa-venus-mars{font-size: 30px;
+    color: white;
+}
+
+.fa-wheat-awn-circle-exclamation{font-size: 30px;
+    color: white;
+}
+
+.fa-user-doctor{
+    font-size: 30px;
+    color: white;
+}
+
+.hidden {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+.hidden.fade-in {
+    transform: none;
+    opacity: 0;
+}
+
+.hidden.from-left {
+    transform: translateX(-50px);
+    opacity: 0;
+}
+
+.hidden.from-right {
+    transform: translateX(50px);
+    opacity: 0;
+}
+
+.hidden.scale-up {
+    transform: scale(0.8);
+    opacity: 0;
+}
+
+.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.whatsapp-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #25D366;
+    color: white;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-decoration: none; 
+    overflow: hidden; 
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    z-index: 1000;
+}
+
+
+.whatsapp-button:hover {
+    transform: scale(1.1); 
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); 
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+}
+
+.whatsapp-button {
+    animation: pulse 2s infinite; 
+}
