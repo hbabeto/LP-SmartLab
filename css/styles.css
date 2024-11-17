@@ -34,7 +34,7 @@ body {
 
 header {
     background-color: var(--background-color);
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     position: fixed;
     width: 100%;
     top: 0;
@@ -51,6 +51,7 @@ nav {
 .logo {
     display: flex;
     align-items: center;
+    justify-content: flex-start; 
 }
 
 .logo img {
@@ -75,6 +76,31 @@ nav {
 
 .nav-links a:hover {
     color: var(--accent-color);
+}
+
+
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column;
+        align-items: center; 
+        padding: 1rem;
+    }
+
+    .logo {
+        justify-content: center; 
+        margin-bottom: 1rem; 
+    }
+
+    .nav-links {
+        display: flex;
+        flex-direction: column; 
+        align-items: center;
+        margin-top: 0; 
+    }
+
+    .nav-links li {
+        margin: 0.5rem 0; 
+    }
 }
 
 .hero {
