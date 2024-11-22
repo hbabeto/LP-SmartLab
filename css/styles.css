@@ -754,3 +754,34 @@ footer {
     60% { transform: translateY(-15px); }
   }
 
+  .additional-info-banner {
+    border-top: 2px solid var(--accent-color);
+    padding: 15px;
+    margin-top: 20px;
+    text-align: center;
+}
+
+.highlight-text {
+    color: #333;
+    font-size: 1rem;
+}
+
+.highlight-text strong {
+    color: var(--primary-color);
+    font-weight: bold;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.additional-info-banner {
+    opacity: 0; /* Padrão inicial */
+}

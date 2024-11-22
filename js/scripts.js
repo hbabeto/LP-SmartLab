@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const observerOptions = {
     root: null,
     rootMargin: '0px',
-    threshold: 0.1
+    threshold: 0.1,
   };
 
   const animateElement = (element, animation) => {
@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
   const observerCallback = (entries, observer) => {
-    entries.forEach(entry => {
+    entries.forEach((entry) => {
       if (entry.isIntersecting) {
         const element = entry.target;
         let animation = 'fadeIn 1s forwards';
@@ -34,6 +34,8 @@ document.addEventListener('DOMContentLoaded', () => {
           animation = 'slideInFromRight 1s forwards';
         } else if (element.classList.contains('cta')) {
           animation = 'pulseIn 1s forwards';
+        } else if (element.classList.contains('additional-info-banner')) {
+          animation = 'fadeInUp 1s forwards'; // Nova animação para o banner
         }
 
         animateElement(element, animation);
@@ -44,7 +46,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const observer = new IntersectionObserver(observerCallback, observerOptions);
 
-  document.querySelectorAll('.hidden, .feature-card, .exam-card, .model-card, .investment-card, .intro-text, .intro-image, .cta').forEach((element, index) => {
+  document.querySelectorAll('.hidden, .feature-card, .exam-card, .model-card, .investment-card, .intro-text, .intro-image, .cta, .additional-info-banner').forEach((element, index) => {
     if (element.classList.contains('feature-card')) {
       element.dataset.delay = `${index * 0.2}s`;
     }
@@ -52,7 +54,4 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   console.log('Animations have been set up successfully!');
-
-  
 });
-
